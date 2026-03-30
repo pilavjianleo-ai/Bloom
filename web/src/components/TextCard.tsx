@@ -32,9 +32,9 @@ export default function TextCard({ post, onShare }: Props) {
   }, [post.id]);
 
   return (
-    <div className="relative flex items-end justify-center w-full h-full">
+    <div className="relative flex items-end justify-center w-full h-[100dvh]">
       {/* Container */}
-      <div className="relative w-full h-full lg:h-[calc(100%-2rem)] lg:max-w-[450px] lg:rounded-2xl overflow-hidden bg-gradient-to-br from-zinc-900 to-black shrink-0 group lg:my-4">
+      <div className="relative w-full h-[100dvh] lg:h-[100dvh] lg:max-w-[450px] overflow-hidden bg-gradient-to-br from-zinc-900 to-black shrink-0 group">
         
         {post.userId === store.currentUserId && (
           <div className="absolute top-4 right-4 z-30 flex gap-2">
@@ -118,7 +118,7 @@ export default function TextCard({ post, onShare }: Props) {
         </div>
 
         {/* Bottom Content Area */}
-        <div className="absolute bottom-0 left-0 right-16 lg:right-16 p-4 pb-[calc(env(safe-area-inset-bottom)+4rem)] lg:pb-6 z-20 flex flex-col justify-end gap-3 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-16 lg:right-16 p-4 pb-[calc(env(safe-area-inset-bottom)+5rem)] lg:pb-6 z-20 flex flex-col justify-end gap-3 pointer-events-none">
           
           {/* Micro-Feedback System (Simulated live signals) */}
           <div className="flex flex-col gap-1 mb-2 pointer-events-auto">
@@ -188,7 +188,7 @@ export default function TextCard({ post, onShare }: Props) {
         </div>
 
         {/* Mobile Vertical Engagement Bar */}
-        <div className="absolute right-4 bottom-[calc(env(safe-area-inset-bottom)+5rem)] z-20 flex flex-col items-center gap-5 pointer-events-auto shrink-0 lg:bottom-10">
+        <div className="absolute right-4 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex flex-col items-center gap-5 pointer-events-auto shrink-0 lg:bottom-10">
           
           <button
             aria-label="Like"

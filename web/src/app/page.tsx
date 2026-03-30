@@ -105,22 +105,22 @@ export default function Home() {
               setLimit((n) => Math.min(n + 6, 120));
             }
           }}
-          className="h-full w-full max-w-[500px] overflow-y-scroll snap-y snap-mandatory no-scrollbar relative bg-black"
+          className="h-[100dvh] w-full lg:max-w-[450px] overflow-y-scroll snap-y snap-mandatory no-scrollbar relative bg-black"
         >
           {!mounted ? (
-            <div className="h-full w-full flex items-center justify-center snap-start snap-always shrink-0 bg-black" />
+            <div className="h-[100dvh] w-full flex items-center justify-center snap-start snap-always shrink-0 bg-black" />
           ) : data.length > 0 ? (
             <div className="flex flex-col">
               {data.map((item) => {
                 if ("videoUrl" in item) {
                   return (
-                    <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
+                    <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
                       <VideoCard post={item} onShare={() => setActiveShare(item.id)} />
                     </div>
                   );
                 }
                 return (
-                  <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
+                  <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
                     <TextCard post={item} onShare={() => setActiveShare(item.id)} />
                   </div>
                 );
