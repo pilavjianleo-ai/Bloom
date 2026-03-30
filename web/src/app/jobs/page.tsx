@@ -29,7 +29,7 @@ export default function Jobs() {
   const trendingJobs = store.jobs.slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-24 md:pb-0">
+    <div className="flex-1 w-full bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-24 md:pb-8">
       
       {/* Header Banner */}
       <div className="relative h-[calc(12rem+env(safe-area-inset-top))] md:h-64 bg-emerald-50 dark:bg-gradient-to-tr dark:from-emerald-900 dark:via-zinc-900 dark:to-black overflow-hidden border-b border-emerald-100 dark:border-slate-800">

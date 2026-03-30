@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TopNav from "@/components/TopNav";
 import BottomNav from "@/components/BottomNav";
+import DesktopSidebar from "@/components/DesktopSidebar";
 import { StoreProvider } from "@/state/store";
 
 const geistSans = Geist({
@@ -40,14 +41,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900 min-h-[100dvh] flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900 h-[100dvh] flex overflow-hidden`}
       >
         <StoreProvider>
-          <TopNav />
-          <div className="flex-1 w-full">
-            {children}
+          <DesktopSidebar />
+          <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950">
+            <TopNav />
+            <main className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative w-full">
+              {children}
+            </main>
+            <BottomNav />
           </div>
-          <BottomNav />
         </StoreProvider>
       </body>
     </html>

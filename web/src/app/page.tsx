@@ -83,13 +83,13 @@ export default function Home() {
   }, [category, query, store.posts, store.textPosts, limit, initialRole, initialLocation, store.engagement, store.users]);
 
   return (
-    <div className="h-[100dvh] w-full bg-black text-white flex overflow-hidden">
+    <div className="flex-1 w-full bg-black text-white flex overflow-hidden">
       
       {/* Centered Feed Wrapper */}
       <div className="flex-1 relative flex justify-center h-full bg-black">
         
         {/* Mobile TopBar */}
-        <div className="md:hidden absolute top-0 left-0 right-0 z-40 pointer-events-none">
+        <div className="lg:hidden absolute top-0 left-0 right-0 z-40 pointer-events-none">
           <div className="p-4 pt-[calc(env(safe-area-inset-top)+1rem)] flex items-center justify-between pointer-events-auto">
             <div className="text-xl font-black tracking-tighter drop-shadow-md">FIXLY.</div>
             <Link href="/search" className="p-2 rounded-full bg-black/20 backdrop-blur-md text-white">
@@ -108,19 +108,19 @@ export default function Home() {
           className="h-full w-full max-w-[500px] overflow-y-scroll snap-y snap-mandatory no-scrollbar relative bg-black"
         >
           {!mounted ? (
-            <div className="h-[100dvh] w-full flex items-center justify-center snap-start snap-always shrink-0 bg-black" />
+            <div className="h-full w-full flex items-center justify-center snap-start snap-always shrink-0 bg-black" />
           ) : data.length > 0 ? (
             <div className="flex flex-col">
               {data.map((item) => {
                 if ("videoUrl" in item) {
                   return (
-                    <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
+                    <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
                       <VideoCard post={item} onShare={() => setActiveShare(item.id)} />
                     </div>
                   );
                 }
                 return (
-                  <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
+                  <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
                     <TextCard post={item} onShare={() => setActiveShare(item.id)} />
                   </div>
                 );

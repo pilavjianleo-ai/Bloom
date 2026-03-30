@@ -46,7 +46,7 @@ export default function Profile() {
   }
   
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-20">
+    <div className="flex-1 w-full bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-24 md:pb-8">
       {/* Cover Photo */}
       <div className="h-40 md:h-56 w-full relative">
         <div className="absolute inset-0 bg-indigo-100 dark:bg-gradient-to-tr dark:from-indigo-900 dark:via-zinc-900 dark:to-black" />

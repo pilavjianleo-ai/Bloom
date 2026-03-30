@@ -76,9 +76,9 @@ export default function VideoCard({ post, onShare }: Props) {
   }, [store, post.id]);
 
   return (
-    <div className="relative flex items-end justify-center w-full h-[100dvh]">
+    <div className="relative flex items-end justify-center w-full h-full">
       {/* Container (Mobile: full width/height. Desktop: centered, rounded, max width) */}
-      <div className="relative w-full h-[100dvh] lg:h-[calc(100dvh-4rem)] lg:max-w-[450px] lg:rounded-2xl overflow-hidden bg-black shrink-0 group">
+      <div className="relative w-full h-full lg:h-[calc(100%-2rem)] lg:max-w-[450px] lg:rounded-2xl overflow-hidden bg-black shrink-0 group lg:my-4">
         
         {post.userId === store.currentUserId && (
           <div className="absolute top-4 right-4 z-30 flex gap-2">

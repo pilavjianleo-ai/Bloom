@@ -32,9 +32,9 @@ export default function TextCard({ post, onShare }: Props) {
   }, [post.id]);
 
   return (
-    <div className="relative flex items-end justify-center w-full h-[100dvh]">
+    <div className="relative flex items-end justify-center w-full h-full">
       {/* Container */}
-      <div className="relative w-full h-[100dvh] lg:h-[calc(100dvh-4rem)] lg:max-w-[450px] lg:rounded-2xl overflow-hidden bg-gradient-to-br from-zinc-900 to-black shrink-0 group">
+      <div className="relative w-full h-full lg:h-[calc(100%-2rem)] lg:max-w-[450px] lg:rounded-2xl overflow-hidden bg-gradient-to-br from-zinc-900 to-black shrink-0 group lg:my-4">
         
         {post.userId === store.currentUserId && (
           <div className="absolute top-4 right-4 z-30 flex gap-2">

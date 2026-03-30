@@ -38,7 +38,7 @@ export default function Dashboard() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white pb-24 md:pb-0">
+    <div className="flex-1 w-full bg-slate-950 text-white pb-24 md:pb-8">
       
       {/* Premium Header */}
       <div className="bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 px-4 py-6 pt-[calc(env(safe-area-inset-top)+1.5rem)] md:px-8 md:py-8 sticky top-0 z-50">

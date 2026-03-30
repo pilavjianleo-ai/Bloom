@@ -44,7 +44,7 @@ export default function Search() {
   const hasResults = results.users.length > 0 || results.posts.length > 0 || results.texts.length > 0 || results.jobs.length > 0 || results.groups.length > 0;
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-white pb-24">
+    <div className="flex-1 w-full bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-white pb-24 md:pb-8">
       
       {/* Search Header */}
       <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 py-4 pt-[calc(env(safe-area-inset-top)+1rem)] md:px-8">
