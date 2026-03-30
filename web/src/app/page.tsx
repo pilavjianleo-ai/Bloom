@@ -83,79 +83,19 @@ export default function Home() {
   }, [category, query, store.posts, store.textPosts, limit, initialRole, initialLocation, store.engagement, store.users]);
 
   return (
-    <div className="h-[100dvh] md:h-[calc(100dvh-64px)] w-full bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex overflow-hidden">
+    <div className="h-[100dvh] w-full bg-black text-white flex overflow-hidden">
       
-      {/* Desktop Left Sidebar */}
-      <div className="hidden lg:flex flex-col w-[280px] shrink-0 p-6 border-r border-slate-200 dark:border-slate-800 h-full overflow-y-auto no-scrollbar bg-slate-50 dark:bg-slate-950 z-10 relative">
-        <div className="text-3xl font-black text-slate-900 dark:text-white mb-10 tracking-tighter px-2">FIXLY.</div>
-        
-        <nav className="flex flex-col gap-2 mb-10">
-          <Link href="/" className="px-4 py-3 rounded-2xl bg-indigo-50 dark:bg-white/10 text-indigo-600 dark:text-white font-bold flex items-center gap-4 transition-colors">
-            <HomeIcon size={24}/> For You
-          </Link>
-          <Link href="/discover" className="px-4 py-3 rounded-2xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-bold flex items-center gap-4 transition-colors">
-            <Compass size={24}/> Explore
-          </Link>
-          <Link href="/groups" className="px-4 py-3 rounded-2xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-bold flex items-center gap-4 transition-colors relative group">
-            <Users size={24}/> Communities
-            <span className="absolute right-4 w-2 h-2 rounded-full bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </Link>
-          <Link href="/jobs" className="px-4 py-3 rounded-2xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-bold flex items-center gap-4 transition-colors">
-            <Briefcase size={24}/> Opportunities
-          </Link>
-          <Link href="/dashboard" className="px-4 py-3 rounded-2xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-bold flex items-center gap-4 transition-colors relative">
-            <LayoutDashboard size={24}/> My Hub
-          </Link>
-          <Link href="/inbox" className="px-4 py-3 rounded-2xl text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 font-bold flex items-center gap-4 transition-colors relative">
-            <MessageSquare size={24}/> Inbox
-            {store.notifications.some(n => !n.read) && <span className="absolute right-4 w-2 h-2 rounded-full bg-red-500" />}
-          </Link>
-        </nav>
-
-        <div className="px-4 mb-4 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Categories</div>
-        <div className="flex flex-col gap-1 mb-10">
-          <button onClick={() => setCategory('all')} className={`px-4 py-2.5 rounded-xl text-sm font-bold text-left transition-colors ${category === 'all' ? 'bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
-            All Content
-          </button>
-          {CATEGORIES.map(c => (
-            <button key={c.key} onClick={() => setCategory(c.key)} className={`px-4 py-2.5 rounded-xl text-sm font-bold text-left transition-colors ${category === c.key ? 'bg-indigo-50 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
-              {c.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Discovery Layer */}
-        <div className="px-4 mb-4 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Trending Now</div>
-        <div className="flex flex-col gap-3 px-4">
-          <Link href="/?q=renovation" className="group">
-            <div className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-2"><TrendingUp size={14} className="text-indigo-500" /> #renovation</div>
-            <div className="text-xs text-slate-500 dark:text-slate-500">12.4K posts</div>
-          </Link>
-          <Link href="/?q=plumbing" className="group">
-            <div className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-2"><Sparkles size={14} className="text-emerald-500" /> #plumbing</div>
-            <div className="text-xs text-slate-500 dark:text-slate-500">8.2K posts</div>
-          </Link>
-          <Link href="/discover" className="group">
-            <div className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-colors flex items-center gap-2"><Star size={14} className="text-amber-500" /> Top Creators</div>
-            <div className="text-xs text-slate-500 dark:text-slate-500">Discover experts</div>
-          </Link>
-        </div>
-      </div>
-
       {/* Centered Feed Wrapper */}
-      <div className="flex-1 relative flex justify-center h-full bg-white dark:bg-slate-950/95">
-        
-        {/* Subtle Background Glow for immersion */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none opacity-50" />
+      <div className="flex-1 relative flex justify-center h-full bg-black">
         
         {/* Mobile TopBar */}
-        <div className="lg:hidden">
-          <TopBar
-            active={category}
-            onCategoryChange={setCategory}
-            query={query}
-            onQuery={setQuery}
-          />
+        <div className="md:hidden absolute top-0 left-0 right-0 z-40 pointer-events-none">
+          <div className="p-4 pt-[calc(env(safe-area-inset-top)+1rem)] flex items-center justify-between pointer-events-auto">
+            <div className="text-xl font-black tracking-tighter drop-shadow-md">FIXLY.</div>
+            <Link href="/search" className="p-2 rounded-full bg-black/20 backdrop-blur-md text-white">
+              <Search size={20} />
+            </Link>
+          </div>
         </div>
 
         <div
@@ -165,22 +105,22 @@ export default function Home() {
               setLimit((n) => Math.min(n + 6, 120));
             }
           }}
-          className="h-full w-full max-w-[800px] overflow-y-scroll snap-y snap-mandatory no-scrollbar relative"
+          className="h-full w-full max-w-[500px] overflow-y-scroll snap-y snap-mandatory no-scrollbar relative bg-black"
         >
           {!mounted ? (
-            <div className="h-full w-full flex items-center justify-center snap-start shrink-0" />
+            <div className="h-[100dvh] w-full flex items-center justify-center snap-start snap-always shrink-0 bg-black" />
           ) : data.length > 0 ? (
             <div className="flex flex-col">
               {data.map((item) => {
                 if ("videoUrl" in item) {
                   return (
-                    <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center lg:py-6">
+                    <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
                       <VideoCard post={item} onShare={() => setActiveShare(item.id)} />
                     </div>
                   );
                 }
                 return (
-                  <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center lg:py-6">
+                  <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center bg-black">
                     <TextCard post={item} onShare={() => setActiveShare(item.id)} />
                   </div>
                 );

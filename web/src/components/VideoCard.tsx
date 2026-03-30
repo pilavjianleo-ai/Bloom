@@ -76,9 +76,9 @@ export default function VideoCard({ post, onShare }: Props) {
   }, [store, post.id]);
 
   return (
-    <div className="relative flex items-end justify-center w-full h-full">
-      {/* Container (Mobile: full width/height. Desktop: centered, rounded, 600px max) */}
-      <div className="relative w-full h-full lg:w-[600px] lg:h-full lg:rounded-[2rem] overflow-hidden bg-slate-950 shadow-2xl shrink-0 group">
+    <div className="relative flex items-end justify-center w-full h-[100dvh]">
+      {/* Container (Mobile: full width/height. Desktop: centered, rounded, max width) */}
+      <div className="relative w-full h-[100dvh] lg:h-[calc(100dvh-4rem)] lg:max-w-[450px] lg:rounded-2xl overflow-hidden bg-black shrink-0 group">
         
         {post.userId === store.currentUserId && (
           <div className="absolute top-4 right-4 z-30 flex gap-2">
@@ -170,7 +170,7 @@ export default function VideoCard({ post, onShare }: Props) {
         </div>
 
         {/* Bottom Content Area */}
-        <div className="absolute bottom-0 left-0 right-16 lg:right-0 p-4 pb-24 lg:pb-6 z-20 flex flex-col justify-end gap-3 pointer-events-none">
+        <div className="absolute bottom-0 left-0 right-16 lg:right-16 p-4 pb-[calc(env(safe-area-inset-bottom)+4rem)] lg:pb-6 z-20 flex flex-col justify-end gap-3 pointer-events-none">
           
           {/* Micro-Feedback System (Simulated live signals) */}
           <div className="flex flex-col gap-1 mb-2 pointer-events-auto">
@@ -249,8 +249,8 @@ export default function VideoCard({ post, onShare }: Props) {
           </div>
         </div>
 
-        {/* Mobile Vertical Engagement Bar (Hidden on Desktop) */}
-        <div className="absolute right-4 bottom-24 z-20 flex flex-col items-center gap-5 pointer-events-auto shrink-0 lg:hidden">
+        {/* Mobile Vertical Engagement Bar */}
+        <div className="absolute right-4 bottom-[calc(env(safe-area-inset-bottom)+5rem)] z-20 flex flex-col items-center gap-5 pointer-events-auto shrink-0 lg:bottom-10">
           
           <button
             aria-label="Like"
@@ -305,61 +305,6 @@ export default function VideoCard({ post, onShare }: Props) {
           )}
 
         </div>
-      </div>
-
-      {/* Desktop Vertical Engagement Bar (Hidden on Mobile) */}
-      <div className="hidden lg:flex flex-col items-center gap-5 pointer-events-auto shrink-0 ml-6 mb-6">
-        <button
-          aria-label="Like"
-          className="group flex flex-col items-center gap-2"
-          onClick={() => {
-            setLiked((v) => !v);
-            store.like(post.id);
-          }}
-        >
-          <div className={`h-12 w-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center transition-all group-hover:scale-110 group-active:scale-90 shadow-xl ${liked ? "border-red-500/50 bg-red-500/10" : "hover:bg-slate-800"}`}>
-            <Heart size={24} className={`transition-colors ${liked ? "text-red-500" : "text-white"}`} fill={liked ? "currentColor" : "none"} />
-          </div>
-          <span className="text-white/60 font-bold text-xs">{likes}</span>
-        </button>
-
-        <button
-          aria-label="Comments"
-          className="group flex flex-col items-center gap-2"
-          onClick={() => window.dispatchEvent(new CustomEvent("open-comments", { detail: { postId: post.id } }))}
-        >
-          <div className="h-12 w-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center transition-all group-hover:scale-110 group-active:scale-90 shadow-xl hover:bg-slate-800">
-            <MessageCircle size={24} className="text-white" />
-          </div>
-          <span className="text-white/60 font-bold text-xs">{(post.likes % 42) + 5}</span>
-        </button>
-
-        <button
-          aria-label="Save"
-          className="group flex flex-col items-center gap-2"
-          onClick={() => {
-            setSaved((v) => !v);
-            store.save(post.id);
-          }}
-        >
-          <div className={`h-12 w-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center transition-all group-hover:scale-110 group-active:scale-90 shadow-xl ${saved ? "border-amber-400/50 bg-amber-400/10" : "hover:bg-slate-800"}`}>
-            <Bookmark size={24} className={`transition-colors ${saved ? "text-amber-400" : "text-white"}`} fill={saved ? "currentColor" : "none"} />
-          </div>
-          <span className="text-white/60 font-bold text-xs">Save</span>
-        </button>
-
-        {onShare && (
-          <button
-            aria-label="Share"
-            className="group flex flex-col items-center gap-2"
-            onClick={onShare}
-          >
-            <div className="h-12 w-12 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center transition-all group-hover:scale-110 group-active:scale-90 shadow-xl hover:bg-slate-800">
-              <Share2 size={24} className="text-white" />
-            </div>
-            <span className="text-white/60 font-bold text-xs">Share</span>
-          </button>
-        )}
       </div>
 
       <ContactModal
