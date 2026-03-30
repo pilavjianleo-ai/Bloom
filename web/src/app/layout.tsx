@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TopNav from "@/components/TopNav";
@@ -20,6 +20,18 @@ export const metadata: Metadata = {
   description: "Short-form video discovery for services, experts, and community Q&A",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#020617" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -28,11 +40,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900 min-h-full flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900 min-h-[100dvh] flex flex-col`}
       >
         <StoreProvider>
           <TopNav />
-          <div className="flex-1 pb-16 md:pb-0">
+          <div className="flex-1 w-full">
             {children}
           </div>
           <BottomNav />

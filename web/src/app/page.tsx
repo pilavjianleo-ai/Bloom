@@ -83,7 +83,7 @@ export default function Home() {
   }, [category, query, store.posts, store.textPosts, limit, initialRole, initialLocation, store.engagement, store.users]);
 
   return (
-    <div className="h-[100dvh] w-full bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex overflow-hidden">
+    <div className="h-[100dvh] md:h-[calc(100dvh-64px)] w-full bg-white dark:bg-slate-950 text-slate-900 dark:text-white flex overflow-hidden">
       
       {/* Desktop Left Sidebar */}
       <div className="hidden lg:flex flex-col w-[280px] shrink-0 p-6 border-r border-slate-200 dark:border-slate-800 h-full overflow-y-auto no-scrollbar bg-slate-50 dark:bg-slate-950 z-10 relative">
@@ -174,13 +174,13 @@ export default function Home() {
               {data.map((item) => {
                 if ("videoUrl" in item) {
                   return (
-                    <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center lg:py-6">
+                    <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center lg:py-6">
                       <VideoCard post={item} onShare={() => setActiveShare(item.id)} />
                     </div>
                   );
                 }
                 return (
-                  <div key={item.id} className="h-[100dvh] w-full snap-start snap-always relative shrink-0 flex items-center justify-center lg:py-6">
+                  <div key={item.id} className="h-full w-full snap-start snap-always relative shrink-0 flex items-center justify-center lg:py-6">
                     <TextCard post={item} onShare={() => setActiveShare(item.id)} />
                   </div>
                 );
@@ -206,14 +206,6 @@ export default function Home() {
             </div>
           </div>
           )}
-          <a
-            href="https://trae.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="fixed bottom-24 right-4 lg:bottom-8 lg:right-8 z-50 text-[10px] font-bold text-white/30 hover:text-white/80 transition-colors uppercase tracking-widest bg-slate-950/50 px-3 py-1.5 rounded-full backdrop-blur-sm border border-slate-800"
-          >
-            Built with Trae
-          </a>
           <CommentSheet />
           <ShareSheet />
           <OnboardingOverlay />

@@ -21,10 +21,10 @@ export default function Inbox() {
   if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white pb-20 md:pb-0">
-      <div className="max-w-6xl mx-auto h-screen flex flex-col md:pt-16">
+    <div className="h-[100dvh] md:h-[calc(100dvh-64px)] bg-slate-950 text-white flex flex-col pb-16 md:pb-0">
+      <div className="max-w-6xl mx-auto w-full h-full flex flex-col md:pt-4">
         {/* Header & Tabs */}
-        <div className="px-4 py-6 md:px-6 md:py-8 border-b border-slate-800 shrink-0">
+        <div className="px-4 py-6 pt-[calc(env(safe-area-inset-top)+1.5rem)] md:px-6 md:py-8 border-b border-slate-800 shrink-0">
           <h1 className="text-3xl font-bold mb-6 flex items-center gap-3">
             Opportunity Hub
             <span className="px-3 py-1 bg-indigo-500/20 text-indigo-400 text-xs font-bold rounded-full border border-indigo-500/30">NEW</span>

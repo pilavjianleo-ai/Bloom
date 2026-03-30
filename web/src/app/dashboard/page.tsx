@@ -41,7 +41,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-slate-950 text-white pb-24 md:pb-0">
       
       {/* Premium Header */}
-      <div className="bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 px-4 py-6 md:px-8 md:py-8 sticky top-0 z-50">
+      <div className="bg-slate-950/80 backdrop-blur-xl border-b border-slate-800 px-4 py-6 pt-[calc(env(safe-area-inset-top)+1.5rem)] md:px-8 md:py-8 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full overflow-hidden relative ring-2 ring-white/20">

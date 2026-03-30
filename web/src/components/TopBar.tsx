@@ -22,7 +22,7 @@ export default function TopBar({
   >(() => [{ key: "all" as Category | "all", label: "All" }].concat(CATEGORIES as any), []);
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-40 p-3">
+    <div className="absolute top-0 left-0 right-0 z-40 p-3 pt-[calc(env(safe-area-inset-top)+0.75rem)]">
       <div className="rounded-2xl bg-slate-950/40 backdrop-blur-md border border-slate-800 p-3">
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
           {cats.map((c) => (

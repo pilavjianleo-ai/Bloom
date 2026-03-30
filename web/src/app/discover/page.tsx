@@ -31,7 +31,7 @@ export default function Discover() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-24 md:pb-0">
       
       {/* Header & Search */}
-      <div className="sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 py-4 md:px-8 md:py-6">
+      <div className="sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 py-4 pt-[calc(env(safe-area-inset-top)+1rem)] md:px-8 md:py-6">
         <div className="max-w-6xl mx-auto space-y-4">
           <div className="flex items-center justify-between">
             <h1 className="text-3xl font-black flex items-center gap-2">

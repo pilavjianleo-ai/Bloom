@@ -32,7 +32,7 @@ export default function Jobs() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white pb-24 md:pb-0">
       
       {/* Header Banner */}
-      <div className="relative h-48 md:h-64 bg-emerald-50 dark:bg-gradient-to-tr dark:from-emerald-900 dark:via-zinc-900 dark:to-black overflow-hidden border-b border-emerald-100 dark:border-slate-800">
+      <div className="relative h-[calc(12rem+env(safe-area-inset-top))] md:h-64 bg-emerald-50 dark:bg-gradient-to-tr dark:from-emerald-900 dark:via-zinc-900 dark:to-black overflow-hidden border-b border-emerald-100 dark:border-slate-800">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-20 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-t from-white via-white/50 to-transparent dark:from-black dark:via-black/50 dark:to-transparent" />
 

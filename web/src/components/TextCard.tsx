@@ -61,7 +61,7 @@ export default function TextCard({ post, onShare }: Props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent top-1/2 pointer-events-none z-0" />
 
         {/* Top Header: User Info */}
-        <div className="absolute top-0 left-0 right-0 p-4 pt-safe-top lg:pt-6 flex items-start justify-between z-20">
+        <div className="absolute top-0 left-0 right-0 p-4 pt-[calc(env(safe-area-inset-top)+1rem)] lg:pt-6 flex items-start justify-between z-20">
           <Link
             href={`/profile/${post.userId}`}
             onClick={() => store.trackProfileClick(post.id)}

@@ -47,7 +47,7 @@ export default function Search() {
     <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] text-slate-900 dark:text-white pb-24">
       
       {/* Search Header */}
-      <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 py-4 md:px-8">
+      <div className="sticky top-0 z-40 bg-slate-50/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-4 py-4 pt-[calc(env(safe-area-inset-top)+1rem)] md:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="relative group">
             <SearchIcon className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors ${isFocused ? "text-indigo-600 dark:text-indigo-400" : "text-slate-400 dark:text-slate-500"}`} size={20} />

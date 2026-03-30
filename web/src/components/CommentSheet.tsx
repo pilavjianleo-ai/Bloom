@@ -60,7 +60,7 @@ export default function CommentSheet() {
       onClick={() => setOpen(false)}
     >
       <div
-        className="w-full sm:max-w-md rounded-t-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-zinc-100 p-4 md:p-6 pb-safe shadow-2xl animate-in slide-in-from-bottom-full duration-300"
+        className="w-full sm:max-w-md rounded-t-[2rem] bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-zinc-100 p-4 md:p-6 pb-[calc(env(safe-area-inset-bottom)+1rem)] shadow-2xl animate-in slide-in-from-bottom-full duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between px-1 mb-4">
