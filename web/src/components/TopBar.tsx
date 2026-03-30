@@ -19,7 +19,7 @@ export default function TopBar({
 }: Props) {
   const cats = useMemo<
     Array<{ key: Category | "all"; label: string }>
-  >(() => [{ key: "all", label: "All" }].concat(CATEGORIES), []);
+  >(() => [{ key: "all" as Category | "all", label: "All" }].concat(CATEGORIES as any), []);
 
   return (
     <div className="absolute top-0 left-0 right-0 z-40 p-3">

@@ -104,12 +104,12 @@ export default function TextCard({ post, onShare }: Props) {
             <p className="text-white text-3xl font-black text-center leading-snug drop-shadow-xl max-w-sm">
               {post.text}
             </p>
-            {post.type === "question" && (
+            {"type" in post && (post as any).type === "question" && (
               <div className="px-4 py-2 bg-indigo-500 text-white font-bold text-sm rounded-full shadow-lg flex items-center gap-2">
                 <MessageCircle size={16} /> Answer this question
               </div>
             )}
-            {post.type === "discussion" && (
+            {"type" in post && (post as any).type === "discussion" && (
               <div className="px-4 py-2 bg-white/20 backdrop-blur-md text-white font-bold text-sm rounded-full shadow-lg flex items-center gap-2">
                 <MessageCircle size={16} /> Join the discussion
               </div>
@@ -134,9 +134,9 @@ export default function TextCard({ post, onShare }: Props) {
             <span className="px-3 py-1 rounded-lg bg-slate-950/40 backdrop-blur-md border border-slate-800 text-white/90 text-xs font-bold shadow-lg">
               #{post.category}
             </span>
-            {post.type && (
-              <span className="px-3 py-1 rounded-lg bg-slate-950/40 backdrop-blur-md border border-slate-800 text-white/90 text-xs font-bold shadow-lg capitalize">
-                {post.type}
+            {"type" in post && (post as any).type && (
+              <span className="px-3 py-1 rounded-lg bg-slate-950/40 backdrop-blur-md border border-white/10 text-white text-xs font-bold capitalize">
+                {(post as any).type}
               </span>
             )}
           </div>
@@ -150,7 +150,7 @@ export default function TextCard({ post, onShare }: Props) {
 
           {/* Strong Action Buttons */}
           <div className="flex flex-wrap items-center gap-2 pointer-events-auto pt-2">
-            {post.type === "job" ? (
+            {"type" in post && (post as any).type === "job" ? (
               <Link 
                 href={`/jobs/${post.id}`}
                 className="px-6 py-3 rounded-2xl text-sm font-black bg-emerald-500 text-black shadow-md hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
@@ -355,7 +355,7 @@ export default function TextCard({ post, onShare }: Props) {
       <ContactModal
         open={open}
         onClose={() => setOpen(false)}
-        recipientId={post.businessId || post.userId}
+        recipientId={post.userId}
         recipientName={post.businessName}
       />
     </div>

@@ -142,6 +142,11 @@ function load(): StoreState {
       engagement: {},
       cvs: {},
       coverLetters: {},
+      groups: [
+        { id: "g-1", name: "Plumbing Pros", description: "Share tips and get advice on complex plumbing jobs.", category: "plumbing", members: [USERS[0].id] },
+        { id: "g-2", name: "Home Maintenance", description: "General DIY and home care.", category: "general", members: [] }
+      ],
+      groupPosts: [],
     };
   }
 }
@@ -166,14 +171,14 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         setState((s) => ({
           ...s,
           posts: [p, ...s.posts],
-          engagement: { ...s.engagement, [p.id]: { watchTime: 0, exposures: 1 } },
+          engagement: { ...s.engagement, [p.id]: { watchTime: 0, exposures: 1, profileClicks: 0, contactClicks: 0 } },
         }));
       },
       createText(p) {
         setState((s) => ({
           ...s,
           textPosts: [p, ...s.textPosts],
-          engagement: { ...s.engagement, [p.id]: { watchTime: 0, exposures: 1 } },
+          engagement: { ...s.engagement, [p.id]: { watchTime: 0, exposures: 1, profileClicks: 0, contactClicks: 0 } },
         }));
       },
       createGroupPost(p) {

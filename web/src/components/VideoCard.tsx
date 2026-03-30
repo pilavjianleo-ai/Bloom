@@ -155,7 +155,7 @@ export default function VideoCard({ post, onShare }: Props) {
               <div className="flex items-center gap-2 text-xs text-white/80 font-medium">
                 <span className="capitalize text-emerald-400">{role}</span>
                 <span className="w-1 h-1 rounded-full bg-white/50" />
-                <span>{post.location || "Remote"}</span>
+                <span>{"location" in post ? (post as any).location : "Remote"}</span>
               </div>
             </div>
           </Link>
@@ -212,7 +212,7 @@ export default function VideoCard({ post, onShare }: Props) {
 
           {/* Strong Action Buttons */}
           <div className="flex flex-wrap items-center gap-2 pointer-events-auto pt-2">
-            {post.type === "job" ? (
+            {"type" in post && (post as any).type === "job" ? (
               <Link 
                 href={`/jobs/${post.id}`}
                 className="px-6 py-3 rounded-2xl text-sm font-black bg-emerald-500 text-black shadow-[0_4px_20px_rgba(16,185,129,0.4)] hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
