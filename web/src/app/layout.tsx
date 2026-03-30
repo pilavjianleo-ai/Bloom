@@ -45,9 +45,9 @@ export default function RootLayout({
       >
         <StoreProvider>
           <DesktopSidebar />
-          <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950">
+          <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-slate-950 h-[100dvh] relative">
             <TopNav />
-            <main className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative w-full">
+            <main className="flex-1 flex flex-col overflow-y-auto no-scrollbar relative w-full h-full">
               {children}
             </main>
             <BottomNav />

@@ -76,9 +76,9 @@ export default function VideoCard({ post, onShare }: Props) {
   }, [store, post.id]);
 
   return (
-    <div className="relative flex items-end justify-center w-full h-[100dvh]">
-      {/* Container (Mobile: full width/height. Desktop: centered, no margins) */}
-      <div className="relative w-full h-[100dvh] lg:h-[100dvh] lg:max-w-[450px] overflow-hidden bg-black shrink-0 group">
+    <div className="relative flex items-end justify-center w-full h-full bg-black">
+      {/* Container (Fullscreen edge-to-edge) */}
+      <div className="relative w-full h-full lg:max-w-[450px] overflow-hidden bg-black shrink-0">
         
         {post.userId === store.currentUserId && (
           <div className="absolute top-4 right-4 z-30 flex gap-2">
@@ -250,7 +250,7 @@ export default function VideoCard({ post, onShare }: Props) {
         </div>
 
         {/* Mobile Vertical Engagement Bar */}
-        <div className="absolute right-4 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex flex-col items-center gap-5 pointer-events-auto shrink-0 lg:bottom-10">
+        <div className="absolute right-4 bottom-[calc(env(safe-area-inset-bottom)+5.5rem)] z-20 flex flex-col items-center gap-5 pointer-events-auto shrink-0">
           
           <button
             aria-label="Like"
